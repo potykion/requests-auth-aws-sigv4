@@ -85,7 +85,8 @@ class AWSSigV4(AuthBase):
         if self.region is None:
             raise KeyError("Region is required")
 
-    def __call__(self, r: PreparedRequest) -> PreparedRequest:
+    def __call__(self, r):
+        # type: (PreparedRequest) -> PreparedRequest
         """ Called to add authentication information to request
 
         :param r: `requests.models.PreparedRequest` object to modify
